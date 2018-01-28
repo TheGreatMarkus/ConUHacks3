@@ -9,20 +9,23 @@ import logic.GeneralCalculations.Difficulty;
 import logic.GeneralCalculations.GameMode;
 import logic.GeneralCalculations.Topic;
 import panels.ArithmeticMenu;
+import panels.GameScreen;
 import panels.MainMenu;
+import panels.ResultScreen;
 import panels.WelcomeMenu;
 
 public class Main {
 
 	public static MainMenu mainMenu;
 	public static WelcomeMenu welcomeMenu;
-	public static ArithmeticMenu arithmeticMenu ;
-	
+	public static ArithmeticMenu arithmeticMenu;
+	public static GameScreen gameScreen;
+	public static ResultScreen resultScreen;
 
 	public static void main(String[] args) {
 		System.out.println("This is the main file.");
 		// Creating the window
-		GeneralCalculations.generateQuestions(Difficulty.NORMAL, Topic.DIV, GameMode.FIND_RESULT);
+		GeneralCalculations.generateQuestions(Difficulty.HARD, Topic.ADD, GameMode.FIND_RESULT);
 		JFrame mainWindow = new JFrame();
 
 		// Initializing the window
@@ -33,7 +36,9 @@ public class Main {
 		// Initializing the JPanels/Pages
 		mainMenu = new MainMenu(mainWindow);
 		welcomeMenu = new WelcomeMenu(mainWindow);
-		arithmeticMenu = new ArithmeticMenu (mainWindow);
+		arithmeticMenu = new ArithmeticMenu(mainWindow);
+		gameScreen = new GameScreen(mainWindow);
+		resultScreen = new ResultScreen(mainWindow);
 		mainWindow.add(welcomeMenu);
 		mainWindow.setVisible(true);
 	}

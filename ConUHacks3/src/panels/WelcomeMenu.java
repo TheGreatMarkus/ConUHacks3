@@ -26,9 +26,8 @@ public class WelcomeMenu extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				mainWindow.remove(Main.welcomeMenu);
 				mainWindow.add(Main.mainMenu);
-				mainWindow.invalidate();
+				mainWindow.validate();
 				mainWindow.repaint();
-				mainWindow.revalidate();
 			}
 		});
 		this.add(startButton);

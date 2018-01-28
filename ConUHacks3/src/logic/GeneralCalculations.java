@@ -93,7 +93,7 @@ public class GeneralCalculations {
 			System.out.println(result);
 		}
 
-		return null;
+		return questions;
 	}
 
 }
