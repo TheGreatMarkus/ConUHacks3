@@ -25,7 +25,6 @@ public class Main {
 	public static void main(String[] args) {
 		System.out.println("This is the main file.");
 		// Creating the window
-		GeneralCalculations.generateQuestions(Difficulty.HARD, Topic.ADD, GameMode.FIND_RESULT);
 		JFrame mainWindow = new JFrame();
 
 		// Initializing the window

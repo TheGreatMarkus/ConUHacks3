@@ -6,7 +6,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
-import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -71,7 +70,6 @@ public class GameScreen extends JPanel {
 		this.index = 0;
 		lblQuestion1.setText(questionsToAsk[index].toString());
 		lblQuestion2.setText("");
-		
 
 	}
 
@@ -86,19 +84,29 @@ public class GameScreen extends JPanel {
 		} catch (NumberFormatException ex) {
 			nfe = true;
 		}
-		// This only work for the gamemode "Find the result". more code to
-		// check the missing term must be added to function with the other modes
+		int expectedAnswer = 0;
+		switch (questionsToAsk[index].getMissingTerm()) {
+		case TERM_1:
+			expectedAnswer = questionsToAsk[index].getTerm1();
+			break;
+		case TERM_2:
+			expectedAnswer = questionsToAsk[index].getTerm2();
+			break;
+		case RESULT:
+			expectedAnswer = questionsToAsk[index].getResult();
+			break;
+		}
 		if (nfe) {
 			System.out.println("A NumberFormatException has occured. The answer was NaN");
-			lblQuestion2.setText(lblQuestion1.getText() + " ; Wrong Answer, NaN");
-		} else if (answer == questionsToAsk[index].getResult()) {
+			lblQuestion2.setText(
+					lblQuestion1.getText() + " ; Wrong! That's not a number. The answer was " + expectedAnswer);
+		} else if (answer == expectedAnswer) {
 			System.out.println("The right answer was given");
-			lblQuestion2.setText(lblQuestion1.getText() + " ; Right! : " + answer);
+			lblQuestion2.setText(lblQuestion1.getText() + " ; Right! : Your answer was " + answer);
 			questionsToAsk[index].setAnsweredCorrectly(true);
 		} else {
 			System.out.println("The wrong answer was given");
-			lblQuestion2.setText(
-					lblQuestion1.getText() + " ; Wrong! The answer was : " + questionsToAsk[index].getResult());
+			lblQuestion2.setText(lblQuestion1.getText() + " ; Wrong! The answer was : " + expectedAnswer);
 		}
 		if ((index + 1) <= questionsToAsk.length - 1) {
 			lblQuestion1.setText(questionsToAsk[++index].toString());

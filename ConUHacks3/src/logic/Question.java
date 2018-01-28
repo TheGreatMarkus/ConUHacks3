@@ -26,7 +26,7 @@ public class Question {
 		if (missingTerm == MissingTerm.TERM_1) {
 			return "? " + op + " " + term2 + " = " + result;
 		} else if (missingTerm == MissingTerm.TERM_2) {
-			return term2 + " " + op + " " + " ? = " + result;
+			return term1 + " " + op + " " + " ? = " + result;
 		} else {
 			return term1 + " " + op + " " + term2 + " = ?";
 		}

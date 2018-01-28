@@ -1,5 +1,6 @@
 package panels;
 
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -20,27 +21,32 @@ public class ArithmeticMenu extends JPanel {
 
 	private JFrame mainWindow;
 
-	private JLabel lblTopic;
+	private JLabel lblTitles;
 	private JComboBox cbTopic;
-	private JLabel lblGameMode;
 	private JComboBox cbGameMode;
-	private JLabel lblDifficulty;
 	private JComboBox cbDifficulty;
 	private JButton btnSubmit;
+	private JButton btnBack;
+	private JPanel top;
+	private JPanel mid;
+	private JPanel bottom;
 
 	public ArithmeticMenu(JFrame mainWindow) {
 		this.mainWindow = mainWindow;
 		String[] topic = new String[] { "Addition", "Substraction", "Multiplication", "Division" };
 		String[] level = new String[] { "Easy", "Medium", "Hard" };
-		String[] gameMode = new String[] { "Find the Result" };
+		String[] gameMode = new String[] { "Find the Result", "Fill in the Blank" };
 
-		lblTopic = new JLabel("Topic");
+		lblTitles = new JLabel("Topic                 Game Mode               Difficulty");
 		cbTopic = new JComboBox(topic);
-		lblGameMode = new JLabel("Game Mode");
 		cbGameMode = new JComboBox(gameMode);
-		lblDifficulty = new JLabel("Difficulty");
 		cbDifficulty = new JComboBox(level);
 		btnSubmit = new JButton("Submit");
+		btnBack = new JButton("Back");
+		top = new JPanel();
+		mid = new JPanel();
+		bottom = new JPanel();
+
 		btnSubmit.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -70,6 +76,9 @@ public class ArithmeticMenu extends JPanel {
 				case 0:
 					gm = GameMode.FIND_RESULT;
 					break;
+				case 1:
+					gm = GameMode.FILL_IN_THE_BLANK;
+					break;
 				}
 
 				switch (difficulty) {
@@ -92,14 +101,31 @@ public class ArithmeticMenu extends JPanel {
 				mainWindow.repaint();
 			}
 		});
+		btnBack.addActionListener(new ActionListener() {
 
-		this.add(lblTopic);
-		this.add(cbTopic);
-		this.add(lblGameMode);
-		this.add(cbGameMode);
-		this.add(lblDifficulty);
-		this.add(cbDifficulty);
-		this.add(btnSubmit);
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				mainWindow.remove(Main.arithmeticMenu);
+				mainWindow.add(Main.mainMenu);
+				mainWindow.validate();
+				mainWindow.repaint();
+			}
+		});
+		this.setLayout(new GridLayout(3, 1));
+		this.add(lblTitles);
+		lblTitles.setVerticalAlignment(JLabel.BOTTOM);
+		lblTitles.setHorizontalAlignment(JLabel.CENTER);
+
+		/////////////////////
+		this.add(mid);
+		mid.add(cbTopic);
+		mid.add(cbGameMode);
+		mid.add(cbDifficulty);
+		///////////////////////////////////////////////////////////////
+
+		this.add(bottom);
+		bottom.add(btnBack);
+		bottom.add(btnSubmit);
 
 	}
 }

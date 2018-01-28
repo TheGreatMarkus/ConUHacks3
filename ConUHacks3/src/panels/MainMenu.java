@@ -1,5 +1,6 @@
 package panels;
 
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -16,20 +17,18 @@ public class MainMenu extends JPanel {
 
 	private JLabel lblMainMenu;
 	private JButton btnArithmetic;
-	private JButton btnSomething;
 	private JButton btnOption;
 
 	public MainMenu(JFrame mainWindow) {
 		this.mainWindow = mainWindow;
-		this.lblMainMenu = new JLabel("Main Menu Text");
+		this.lblMainMenu = new JLabel("Welcome to the Main Menu of our Math Educational Game!");
+		this.lblMainMenu.setHorizontalAlignment(JLabel.CENTER);
 		btnArithmetic = new JButton("Arithmetic");
-		// Possible topic if we can get it done in time.
-		btnSomething = new JButton("Optional Topic");
 		btnOption = new JButton("Options");
-
+		this.setLayout(new GridLayout(3, 1));
 		// this is adding the buttons
+		this.add(lblMainMenu);
 		this.add(btnArithmetic);
-		this.add(btnSomething);
 		this.add(btnOption);
 		// positioning
 		// functioning
