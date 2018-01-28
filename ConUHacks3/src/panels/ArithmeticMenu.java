@@ -85,9 +85,7 @@ public class ArithmeticMenu extends JPanel {
 				}
 
 				Question[] questions = GeneralCalculations.generateQuestions(dif, t, gm);
-				System.out.println("The questions are going to be given to the game screen");
-				Main.gameScreen.getQuestion(questions);
-				System.out.println("The questions have been given");
+				Main.gameScreen.getQuestions(questions.clone());
 				mainWindow.remove(Main.arithmeticMenu);
 				mainWindow.add(Main.gameScreen);
 				mainWindow.validate();

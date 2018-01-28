@@ -56,4 +56,12 @@ public class Question {
 		return time;
 	}
 
+	public void setAnsweredCorrectly(boolean answeredCorrectly) {
+		this.answeredCorrectly = answeredCorrectly;
+	}
+
+	public boolean isAnsweredCorrectly() {
+		return answeredCorrectly;
+	}
+
 }

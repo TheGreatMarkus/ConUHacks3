@@ -91,6 +91,7 @@ public class GeneralCalculations {
 			questions[i] = new Question(term1, term2, op, result, mt);
 			System.out.println(questions[i]);
 			System.out.println(result);
+			System.out.println(questions.length);
 		}
 
 		return questions;
