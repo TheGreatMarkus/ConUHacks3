@@ -16,7 +16,7 @@ public class ArithmeticMenu extends JPanel {
 
 	public ArithmeticMenu(JFrame mainWindow) {
 		this.mainWindow = mainWindow;
-		Object[] topic = new String[]{"One","Two","Three"};
+		Object[] topic = new String[]{"Additaion","subtaction","multipication","dividation"};
 		Object[] level = new String[]{"easy","medium","differcult"};
         final JComboBox topicdrop = new JComboBox(topic);
         JComboBox  difficultydrop  = new JComboBox  (level);
