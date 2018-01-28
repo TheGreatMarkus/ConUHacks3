@@ -1,2 +1,8 @@
 # ConUHacks3
-This is the Git repository 
+
+Hackathon for ConUHacksIII made by:
+
+Cristian Aldea
+Poon Kai Alan Fok
+Maximilien Fathi
+Alexander Cohen
